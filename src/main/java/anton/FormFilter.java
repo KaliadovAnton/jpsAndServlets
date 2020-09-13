@@ -19,13 +19,13 @@ public class FormFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
+
         HttpServletRequest request = (HttpServletRequest) req;
-        if(req.getParameter("check")==null && request.getServletContext().getAttribute("check")!="check"){
+        if(req.getParameter("check")==null && request.getSession().getAttribute("check")==null){
+            System.out.println("cjecl");
             HttpServletResponse response = (HttpServletResponse) resp;
             response.sendRedirect("/my-app/error.html");
-        }
-        if(request.getServletContext().getAttribute("check")!="check"){
-            req.getServletContext().setAttribute("check", "check");
+            return;
         }
         chain.doFilter(req, resp);
     }

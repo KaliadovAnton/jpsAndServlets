@@ -2,6 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="anton.Good" %>
 
+<% int pre = 0 ;%>
 
 <!doctype html>
 <html>
@@ -14,16 +15,21 @@
     <%  ArrayList<Good> goods = (ArrayList) request.getAttribute("goods");
         request.getSession().setAttribute("check", "check");
         request.getSession().setAttribute("name", request.getParameter("name"));
+        request.getServletContext().setAttribute("check", "check");
         %>
-    <form action="/my-app/check" method="POST" name="shop-form">
+        <c:forEach var="preorder" items="${preorders}">
+            <%= ++pre%>) ${preorder}
+        </c:forEach>
+    <form action="/my-app/temp-serv" method="POST" name="shop-form">
     <select multiple name="select">
         <c:forEach var="good" items="${goods}">
             <option value="${good.getName()},${good.getPrice()},${name}">${good.getName()}, ${good.getPrice()} byn
             </option>
         </c:forEach>
     </select>
-    <p><input type="submit" formaction="/my-app/temp-serv" name="addBtn" value="Add item"></p>
-    <p><input type="submit" name="sendBtn" value="Submit"></p>
+    <p><input type="submit" name="item" value="Submit"></p>
     </form>
+    <p><input type="submit" form="shop-form" formaction="/my-app/check" name="item" ></p>
+
 </body>
 </html>
