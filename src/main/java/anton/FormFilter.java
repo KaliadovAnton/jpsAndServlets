@@ -24,7 +24,7 @@ public class FormFilter implements Filter {
             HttpServletResponse response = (HttpServletResponse) resp;
             response.sendRedirect("/my-app/error.html");
         }
-        if(request.getServletContext().getAttribute("check")!="check")){
+        if(request.getServletContext().getAttribute("check")!="check"){
             req.getServletContext().setAttribute("check", "check");
         }
         chain.doFilter(req, resp);
