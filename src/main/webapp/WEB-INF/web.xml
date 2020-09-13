@@ -6,7 +6,7 @@
         version="2.5">
     <welcome-file-list>
         <welcome-file>shop.html</welcome-file>
-        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
     </welcome-file-list>
     <servlet>
         <servlet-name>main-serv</servlet-name>
@@ -36,4 +36,42 @@
         <servlet-name>jsp-servlet</servlet-name>
         <url-pattern>*.jsp</url-pattern>
     </servlet-mapping>
+
+    <filter>
+        <filter-name>FormFilter</filter-name>
+        <filter-class>anton.FormFilter</filter-class>
+        <init-param>
+            <param-name>LogFileName</param-name>
+            <param-value>UserLog.txt</param-value>
+        </init-param>
+    </filter>
+    <filter>
+        <filter-name>ShopFilter</filter-name>
+        <filter-class>anton.ShopFilter</filter-class>
+        <init-param>
+            <param-name>LogFileName</param-name>
+            <param-value>UserLog.txt</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>ShopFilter</filter-name>
+        <url-pattern>/first-jsp.jsp</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>FormFilter</filter-name>
+        <url-pattern>/temp-serv</url-pattern>
+    </filter-mapping>
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/error.html</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.html</location>
+    </error-page>
+    <error-page>
+        <error-code>405</error-code>
+        <location>/405.html</location>
+    </error-page>
 </web-app>
+

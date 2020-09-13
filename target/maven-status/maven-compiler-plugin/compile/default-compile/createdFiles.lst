@@ -1,5 +1,9 @@
-anton\JspServlet$1.class
-anton\Good.class
+anton\FormServ.class
+anton\RangeOfGoods.class
 anton\Cart.class
+anton\FormFilter.class
 anton\JspServlet.class
 anton\MainServlet.class
+anton\User.class
+anton\Good.class
+anton\ShopFilter.class
