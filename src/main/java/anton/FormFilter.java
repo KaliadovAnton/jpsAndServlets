@@ -22,7 +22,6 @@ public class FormFilter implements Filter {
 
         HttpServletRequest request = (HttpServletRequest) req;
         if(req.getParameter("check")==null && request.getSession().getAttribute("check")==null){
-            System.out.println("cjecl");
             HttpServletResponse response = (HttpServletResponse) resp;
             response.sendRedirect("/my-app/error.html");
             return;

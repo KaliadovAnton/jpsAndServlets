@@ -23,13 +23,14 @@
     <form action="/my-app/temp-serv" method="POST" name="shop-form">
     <select multiple name="select">
         <c:forEach var="good" items="${goods}">
-            <option value="${good.getName()},${good.getPrice()},${name}">${good.getName()}, ${good.getPrice()} byn
+            <option value="${good.getName()} ${good.getPrice()}">${good.getName()}, ${good.getPrice()} byn
             </option>
         </c:forEach>
     </select>
-    <p><input type="submit" name="item" value="Submit"></p>
+    <p><input type="submit" name="item" value="Add Item"></p>
     </form>
-    <p><input type="submit" form="shop-form" formaction="/my-app/check" name="item" ></p>
-
+    <form action="/my-app/check" method="POST">
+        <p><input type="submit" name="select" value="Submit"></p>
+    </form>
 </body>
 </html>

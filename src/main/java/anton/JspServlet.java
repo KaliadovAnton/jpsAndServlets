@@ -23,7 +23,6 @@ public class JspServlet extends HttpServlet {
         if(req.getParameter("select")!=null) {
             Preorder.addPreorder(req.getParameter("select"));
         }
-        System.out.println(req.getParameter("select"));
         req.setAttribute("preorders", Preorder.getPreorders());
         session.setAttribute("name", getServletContext().getAttribute("name"));
         getServletContext().getRequestDispatcher("/first-jsp.jsp").forward(req, resp);
