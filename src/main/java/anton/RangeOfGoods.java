@@ -2,12 +2,14 @@ package anton;
 
 import java.util.ArrayList;
 
-public  class RangeOfGoods {
+public class RangeOfGoods {
     static ArrayList<Good> range = new ArrayList<>();
-    private RangeOfGoods(){}
 
-    public static ArrayList<Good> initRangeOfGoods(){
-        if(!range.isEmpty()){
+    private RangeOfGoods() {
+    }
+
+    public static ArrayList<Good> initRangeOfGoods() {
+        if (!range.isEmpty()) {
             return range;
         }
         range.add(new Good("Book", 5));
